@@ -34,7 +34,8 @@ function Home(){
   },[]);
 
   return(
-    <div className="container">
+    <div className="container-title">
+      <video className="video-ppal" src="../assets/nasagif10.gif"></video>
       <h1>Bienvenidos a la página de la NASA_PIO</h1>
       <p>
         Un lugar para amantes de la astronomía
