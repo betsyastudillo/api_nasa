@@ -4,39 +4,38 @@
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body{
+  padding: 2rem 5rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/* DETAILS STYLES */
+.details{
+  width: 100vw;
+  height: 100vh;
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  justify-content: center;
+  background-image: url("https://i.pinimg.com/236x/09/df/43/09df4363dcd325613ebd4ae5d6045dbf.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.details h1{
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details p{
+  font-size: 1rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
+/* NAVBAR STYLES */
+.navbar {
+  background-color: rgba(21, 21, 21, 0.799);
+  display: flex;
+  justify-content: space-between;
 }
 
-.read-the-docs {
-  color: #888;
+/* HOME STYLES */
+section{
+  margin: "40px 0"
 }
