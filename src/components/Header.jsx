@@ -1,16 +1,25 @@
-import {Link} from 'react-router-dom';
-import React from 'react';
 import '../App.css';
 
 function Header() {
   return (
-    <nav className="navBar">
-      <h1>NasaPIO</h1>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/photos">Mars Photos</Link></li>
-      </ul>
-      <button onClick={() => alert('Ya estás adentro, disfruta de nuestra página :)')}>Sign up</button>
+    <nav className="nav-bar">
+      <div className='container-navbar'>
+        <img className='img-logo' src='../../public/nasa.svg'></img>
+        <h1>NasaPIO</h1>
+        <div className='navbar-menu'>
+          <ul className='navbar-nav'>
+            <li className='nav-item'>
+              <a href="/">Home</a>
+            </li>
+            <li className='nav-item'>
+              <a href="/photos">Mars Photos</a>
+            </li>
+          </ul>
+        </div>
+        <div className='sesion-nav'>
+          <button onClick={() => alert('Ya estás adentro, disfruta de nuestra página :)')}>Sign up</button>
+        </div>
+      </div>
     </nav>
   )
 }
