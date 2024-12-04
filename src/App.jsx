@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
 
+import Header from "./components/Header";
 import Home from "./pages/Home";
+import Marsphotos from "./pages/MarsPhotos";
 
 import "./App.css";
 
@@ -9,9 +12,11 @@ function App() {
   
   return(
     <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-        </Routes>
+      <Header/>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path='/photos' element ={<Marsphotos/>}/>
+          </Routes>
     </BrowserRouter>
   );
 };

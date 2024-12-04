@@ -1,56 +1,59 @@
-import { useState } from 'react';
-import SearchBar from '../SearchBar'
-import Header from '../components/Header'
-import axios from "axios";
-import {Link} from 'react-router-dom';
-import '../App.css';
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import "../App.css"
 
-function Home () {
-  const [error, setError] = useState('');
-  const [datos, setDatos] = useState([]);
-  const [verDetalles, setVerDetalles] = useState(false);
-  
-  const fetchNasa = async() =>{
+function Home(){
+  const[media, setMedia] = useState('');
+  const[title, setTitle] = useState('');
+  const[typeMedia, setTypeMedia] = useState('');
+  const[explanation, setExplanation] = useState('');
+  const[load, setLoad] = useState(false);
+
+  const todayMedia = async() =>{
+    setLoad(true);
     try {
-      const {data} = await axios.get("https://api.nasa.gov/planetary/",{
-        params: {
-          apikey: '5xdxZLAh05HfhJOrYHyxJVVTd6bxpQSLSdX2zV',
+      const response = await axios.get("https://api.nasa.gov/planetary/apod",{
+        params:{
+          api_key: 'Y06czpykESddBRa4cIbgjswg6QE6oHhSysYiZTNg',
         },
       });
-      
-      return data;
+
+      setMedia(response.data.url);
+      setTitle(response.data.title);
+      setExplanation(response.data.explanation);
+      setTypeMedia(response.data.media_type);
     } catch (error) {
-      setError(data.Error)
+      console.error('Error al conectar con la api', error);
+    } finally{
+      setLoad(false);
     }
-  
-  }
-  
+  };
+
+  useEffect(()=>{
+    todayMedia();
+  },[]);
+
   return(
     <div className="container">
-      <section className='navbar'>
-        <Header />
-      </section>
-      <section>
-        <SearchBar onSearch={fetchNasa}/>
-      </section>
-      <section>
-        <img src='../assets/nasagif10.gif' />
-        <div className="content">
-          <h2>¡Bienvenidos a la NasaPIO!</h2>
-          <p>El lugar ideal para los amantes de la astrología.</p>
+      <h1>Bienvenidos a la página de la NASA_PIO</h1>
+      <p>
+        Un lugar para amantes de la astronomía
+      </p>
+      {load && <p>Cargando la foto del día ... </p>}
+      {!load && (
+        <div>
+          <h3>{title}</h3>
+          {typeMedia === 'image' &&(
+            <img src={media} alt={title}/>
+          )}
+          {typeMedia=== 'video'&&(
+            <iframe width="560" height="315" src={media} title={title} allowFullScreen ></iframe>
+          )}
+          <p>{explanation}</p>
         </div>
-      </section>
-        <div className="card">
-          <img>{fetchNasa().img}</img> 
-          <h4>{fetchNasa().title}</h4>
-
-          <button><Link to="./Details">Ver detalle</Link></button>
-        </div>
-
-
-    </div>   
-  )
-}
+      )}
+    </div>
+  );
+};
 
 export default Home;
-
