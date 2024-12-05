@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
+import Header from "../components/Header";
 
 const MarsPhotos = () => {
   const [photos, setPhotos] = useState([]);

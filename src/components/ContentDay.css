@@ -1,0 +1,27 @@
+
+.content-day {
+  background-color: #608BC1;
+  height: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.consumo-api {
+  text-align: center;
+}
+
+.info-content h3{
+  font-size: 40px;
+  margin: 80px;
+}
+
+.info-content p{
+  font-size: 20px;
+  text-align: justify;
+  margin: 100px 140px;
+}
