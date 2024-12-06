@@ -54,7 +54,7 @@ const MarsPhotos = () => {
   };
 
   return (
-    <div className="search">
+    <div className="search" id="mars-photos">
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Cargando...</p>}
       <div className="card">

@@ -12,7 +12,7 @@ function Header() {
               <a href="/">Home</a>
             </li>
             <li className='nav-item'>
-              <a href="/photos">Mars Photos</a>
+              <a href="#mars-photos">Mars Photos</a>
             </li>
           </ul>
         </div>
